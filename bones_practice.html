@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="three.js"></script>
+		<script src="OrbitControls.js"></script>
+		<script>
+'use strict'
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+camera.position.z = 20;
+camera.position.y = 20;
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+
+var bones = [];
+
+var shoulder = new THREE.Bone();
+var elbow = new THREE.Bone();
+var hand = new THREE.Bone();
+
+shoulder.add( elbow );
+elbow.add( hand );
+
+bones.push( shoulder );
+bones.push( elbow );
+bones.push( hand );
+
+shoulder.position.y = -5;
+elbow.position.y = 0;
+hand.position.y = 5;
+
+var armSkeleton = new THREE.Skeleton( bones );
+
+
+			function createGeometry ( sizing ) {
+
+				var geometry = new THREE.CylinderGeometry(
+					5,                       // radiusTop
+					5,                       // radiusBottom
+					sizing.height,           // height
+					8,                       // radiusSegments
+					sizing.segmentCount * 3, // heightSegments
+					true                     // openEnded
+				);
+
+				for ( var i = 0; i < geometry.vertices.length; i ++ ) {
+
+					var vertex = geometry.vertices[ i ];
+					var y = ( vertex.y + sizing.halfHeight );
+
+					var skinIndex = Math.floor( y / sizing.segmentHeight );
+					var skinWeight = ( y % sizing.segmentHeight ) / sizing.segmentHeight;
+
+					geometry.skinIndices.push( new THREE.Vector4( skinIndex, skinIndex + 1, 0, 0 ) );
+					geometry.skinWeights.push( new THREE.Vector4( 1 - skinWeight, skinWeight, 0, 0 ) );
+
+				}
+
+				return geometry;
+
+			};
+
+
+// CylinderGeometry(radiusTop, radiusBottom, height, radiusSegments, heightSegments, openEnded, thetaStart, thetaLength)
+const addCylinder =
+	(radiusTop=3, radiusBottom=3, height=10, radiusSegments=10, heightSegments=10, openEnded=true) => {
+	// const geometry = new THREE.CylinderGeometry(
+	// 	  radiusTop
+	// 	, radiusBottom
+	// 	, height
+	// 	, radiusSegments
+	// 	, heightSegments
+	// 	, openEnded);
+
+	const geometry = createGeometry(10)
+
+
+	const material = new THREE.MeshBasicMaterial({
+		color: 0x00aaaa,
+		side: THREE.DoubleSide,
+		wireframe: true,
+	});
+
+	// var mesh = new THREE.SkinnedMesh(geometry, material);
+
+	const mesh = new THREE.SkinnedMesh(geometry, material)
+
+
+	// See example from THREE.Skeleton for the armSkeleton
+	var rootBone = armSkeleton.bones[ 0 ];
+	mesh.add( rootBone );
+
+	// Bind the skeleton to the mesh
+	mesh.bind( armSkeleton );
+
+	// Move the bones and manipulate the model
+	armSkeleton.bones[ 0 ].rotation.x = -0.1;
+	armSkeleton.bones[ 1 ].rotation.x =  2;
+
+	scene.add(mesh)
+	return mesh
+}
+
+addCylinder()
+
+// //Create the skin indices and skin weights
+// for ( var i = 0; i < geometry.vertices.length; i ++ ) {
+	
+// 	// Imaginary functions to calculate the indices and weights
+// 	// This part will need to be changed depending your skeleton and model
+// 	var skinIndex = calculateSkinIndex( geometry.vertices, i );
+// 	var skinWeight = calculateSkinWeight( geometry.vertices, i );
+	
+// 	// Ease between each bone
+// 	geometry.skinIndices.push( new THREE.Vector4( skinIndex, skinIndex + 1, 0, 0 ) );
+// 	geometry.skinWeights.push( new THREE.Vector4( 1 - skinWeight, skinWeight, 0, 0 ) );		
+	
+// }
+
+
+const addCube = () => {
+	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+	var material = new THREE.MeshBasicMaterial({
+		color: 0x00ffff,
+		side: THREE.DoubleSide,
+	} );
+	var cube = new THREE.Mesh( geometry, material );
+	scene.add( cube );
+}
+
+addCube()
+
+camera.position.z = 5
+
+function render() {
+	requestAnimationFrame( render );
+	renderer.render( scene, camera );
+	controls.update();
+	// console.log(camera.position, camera.rotation)
+}
+render();
+		</script>
+	</body>
+</html>
