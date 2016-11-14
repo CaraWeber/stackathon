@@ -1,0 +1,22 @@
+{
+  "name": "stackathon",
+  "version": "1.0.0",
+  "description": "3d asana modeling",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e html,js,css ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "nunjucks": "^3.0.0",
+    "path": "^0.12.7",
+    "volleyball": "^1.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}
