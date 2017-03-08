@@ -1,6 +1,11 @@
-'use strict'
+{% extends 'index.html' %}
+
+{% block title %}up dog{% endblock %}
+
+{% block content %}
 
 
+<script>
 
 var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
@@ -65,3 +70,4 @@ var scene = new THREE.Scene();
 			};
 
 			render();
+</script>
