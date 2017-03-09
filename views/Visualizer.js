@@ -48,9 +48,6 @@ export default class Visualizer extends React.Component {
 	    
 	    let container = document.getElementById( 'container' );
 	    container.appendChild( this.renderer.domElement );
-
-	    //wondering if the code below will work . . . ?  
-	    //document.body.appendChild( renderer.domElement );
   	}
 
 
@@ -64,8 +61,10 @@ export default class Visualizer extends React.Component {
 	    this.camera.position.z = 20;
 
 	    //orbit around some object
-	    //this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-	    //this.controls.enableDamping = true;
+	    this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+	    this.controls.autoRotate = true;
+
+	   // this.controls.enableDamping = true;
 	    //this.controls.dampingFactor = 0.25;
 	    //this.controls.enableZoom = true;
 
@@ -106,9 +105,10 @@ export default class Visualizer extends React.Component {
 		// animation
 	animate() {
 	    requestAnimationFrame( this.animate );
-	   // this.controls.update(); // required if controls.enableDamping = true, or if controls.autoRotate = true
+	    this.controls.update(); // required if controls.enableDamping = true, or if controls.autoRotate = true
 	    // this.stats.update();
 	    //this.renderPlot();
+	    this.renderer.render(this.scene, this.camera);
 	  }
 
 
