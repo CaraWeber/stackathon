@@ -14,7 +14,6 @@ import VisualizerContainer from './VisualizerContainer';
 import store, {loadModel} from './store';
 
 
-import updog from './models/up-dog-model';
 
 
 const muiTheme = getMuiTheme({
@@ -30,7 +29,7 @@ const muiTheme = getMuiTheme({
 
 
 // onEnters to load different models
-const loadUpDog = () => store.dispatch(loadModel(updog));
+const loadUpDog = () => store.dispatch(loadModel('updog'));
 
 
 

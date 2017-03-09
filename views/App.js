@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import UpDog from './models/up-dog-model';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 

@@ -15,7 +15,12 @@ export const loadModel = (model) => ({
 const reducer = (state, action) => {
 	let newState = Object.assign({}, state);
 	if(action.type = 'RECEIVE_MODEL'){
-		newState.model = action.model
+		switch (action.model) {
+			case 'updog': 
+			newState.modelSource = './models/upward-facing-dog.json';
+			break;
+		}
+		
 	}
 	return newState;
 }

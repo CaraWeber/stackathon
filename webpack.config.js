@@ -17,7 +17,10 @@ module.exports = {
     loaders: [
       {
         test: /jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: [ 
+          '/node_modules/',
+          '/views/models'
+        ]
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
