@@ -13,22 +13,16 @@ var scene = new THREE.Scene();
 
 			var controls = new THREE.OrbitControls(camera, renderer.domElement);
 			controls.autoRotate = true;
+	 	
+	 		// lights
+	 		let light = new THREE.DirectionalLight( 0xffffff );
+		    light.position.set( 1, 1, 1 );
+		    this.scene.add( light );
+		    light = new THREE.DirectionalLight( 0xffffff );
+		    light.position.set( -1, -1, -1 );
+		    this.scene.add( light );
 
-			var ambientLight = new THREE.AmbientLight(0x404040,8);
- 			scene.add(ambientLight);
-
- 			var pointLight =
-					  new THREE.PointLight(0xFFFFFF);
-
-					// set its position
-					pointLight.position.x = 50;
-					pointLight.position.y = 50;
-					pointLight.position.z = 130;
-
-					// add to the scene
-					scene.add(pointLight);
-
- 			var asanaModel;
+	 			var asanaModel;
 
  			// var loader = new THREE.ObjectLoader();
 
@@ -49,8 +43,8 @@ var scene = new THREE.Scene();
 			// }
 
 
- 			function addModelToScene( geometry, materials ) {
-			   var material = new THREE.MeshFaceMaterial(materials);
+ 			function addModelToScene( geometry) {
+			   var material = new THREE.MeshLambertMaterial({color: '#7C5FF1'});
 			   asanaModel = new THREE.Mesh( geometry, material );
 			   asanaModel.scale.set(0.5,0.5,0.5);
 			   scene.add( asanaModel );

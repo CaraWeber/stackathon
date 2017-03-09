@@ -11,16 +11,20 @@ var scene = new THREE.Scene();
 
 			camera.position.z = 20;
 
-			var ambientLight = new THREE.AmbientLight(0x111111);
- 			scene.add(ambientLight);
+			let light = new THREE.DirectionalLight( 0xffffff );
+		    light.position.set( 1, 1, 1 );
+		    this.scene.add( light );
+		    // light = new THREE.DirectionalLight( 0xffffff );
+		    // light.position.set( -1, -1, -1 );
+		    // this.scene.add( light );
 
- 			var asanaModel;
+ 			//var asanaModel;
 
  			var loader = new THREE.JSONLoader();
  			loader.load("models/upward-facing-dog.json1.json", addModelToScene );
 
- 			function addModelToScene( geometry, materials ) {
-			   var material = new THREE.MeshFaceMaterial(materials);
+ 			function addModelToScene( geometry) {
+			   var material = new THREE.MeshLambertMaterial({color: '#7C5FF1'});
 			   asanaModel = new THREE.Mesh( geometry, material );
 			   asanaModel.scale.set(0.5,0.5,0.5);
 			   scene.add( asanaModel );
