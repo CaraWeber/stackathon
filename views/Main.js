@@ -36,10 +36,12 @@ const loadUpDog = () => store.dispatch(loadModel(updog));
 
 ReactDOM.render(
 	<MuiThemeProvider muiTheme={muiTheme}>
-		<Router history={browserHistory}>
-			<Route path="/" component={App} >
-				<Route path='/home' component={VisualizerContainer} onEnter={loadUpDog} />
-			</Route>
-		</Router>
+		<Provider store={store}>
+			<Router history={browserHistory}>
+				<Route path="/" component={App} >
+					<Route path='/home' component={VisualizerContainer} onEnter={loadUpDog} />
+				</Route>
+			</Router>
+		</Provider>
 	</MuiThemeProvider>,
 	document.getElementById('main'));

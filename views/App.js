@@ -18,6 +18,7 @@ export default class App extends React.Component {
 		console.log("in APP component");
 		return (<div>
 				<AppBar title="asana space" />
+				{this.props.children}
 				</div>
 		)
 	}
