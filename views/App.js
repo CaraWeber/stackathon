@@ -1,22 +1,32 @@
 'use strict';
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import UpDog from './models/up-dog-model';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+
 
 
 
 export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+        injectTapEventPlugin();		
+	}
+
 	render(){
-		return (
-			//eventually include navbar here
-			// with this.props.children
-			<div>
-				<h1 style="text-align: center">asana space</h1>
-				<ul style="list-style: none">
-					<li>urdhva mukha svanasana</li>
-					<li>tadasana</li>
-					<li>adho mukha svanasana</li>
-					<li><a href="down_dog_split.js">ardha adho mukha svanasana</a></li>
-				</ul>
-			</div>
+		console.log("in APP component");
+		return (<div>
+				<AppBar title="asana space" />
+				</div>
 		)
 	}
 }
+
+
+
+// 							<li>urdhva mukha svanasana</li>
+// 							<li>tadasana</li>
+// 							<li>adho mukha svanasana</li>
+// 							<li>ardha adho mukha svanasana</li>
+
