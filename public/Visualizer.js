@@ -55,6 +55,7 @@ export default class Visualizer extends React.Component {
 	    console.log("INIT FUN");
 	    // create the scene to contain 3d modules
 	    this.scene = new THREE.Scene();
+	    this.scene.background = new THREE.Color( 0x264d73 );
 
 	    //the view from the userwindow.innerWidth / window.innerHeight
 	    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -90,7 +91,7 @@ export default class Visualizer extends React.Component {
 	}
 
 	addModelToScene( geometry) {
-	   var material = new THREE.MeshLambertMaterial({color: '#7C5FF1'});
+	   var material = new THREE.MeshLambertMaterial({color: '#d8e4f3'});
 	   let asanaModel = new THREE.Mesh( geometry, material );
 	   asanaModel.scale.set(0.5,0.5,0.5);
 	   this.scene.add( asanaModel );

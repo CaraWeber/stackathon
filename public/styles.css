@@ -16,6 +16,18 @@
 	height: 90px;
 }
 
+.mdl-grid {
+	margin: 15px;
+}
+
+.mdl-cell{
+	border: 15px;
+}
+
+#main {
+	background-color: #19334d;
+}
+
 #subHeader {
 	height: 35px;
 	background: url("./ava7patterns_pattern_1486.png");
@@ -30,6 +42,15 @@ font-family: 'Cinzel', serif;
 	background-color: #264d73;
 }
 
+#container {
+	width: 66%;
+}
+
+#panel {
+	margin: 0;
+	width: 300px;
+	height: 900px;
+}
 
 body {
 	margin: 0;

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 
-
+import Home from './Home';
 import App from './App';
 import VisualizerContainer from './VisualizerContainer';
 import store, {loadModel} from './store';
@@ -25,7 +25,7 @@ ReactDOM.render(
 		<Provider store={store}>
 			<Router history={browserHistory}>
 				<Route path="/" component={App} >
-					<Route path='/home' component={VisualizerContainer} onEnter={loadUpDog} />
+					<Route path='/home' component={Home} onEnter={loadUpDog} />
 				</Route>
 			</Router>
 		</Provider>,
