@@ -1,0 +1,57 @@
+.ava756 {
+	background: url("./ava7patterns_pattern_756.png");
+}
+
+.ava1496 {
+	background: url("./ava7patterns_pattern_1496.png");
+	background-size: 120px;
+}
+
+.mytext {
+	font-family: 'Oswald', sans-serif;
+	font-size: 52px;
+}
+
+.mdl-layout__header {
+	height: 90px;
+}
+
+.mdl-grid {
+	margin: 15px;
+}
+
+.mdl-cell{
+	border: 15px;
+}
+
+#main {
+	background-color: #19334d;
+}
+
+#subHeader {
+	height: 35px;
+	background: url("./ava7patterns_pattern_1486.png");
+	background-size: 50px;
+}
+/*font-family: 'Oswald', sans-serif;
+font-family: 'Cinzel', serif;
+*/
+
+#stripe {
+	height: 2px;
+	background-color: #264d73;
+}
+
+#container {
+	width: 66%;
+}
+
+#panel {
+	margin: 0;
+	width: 300px;
+	height: 900px;
+}
+
+body {
+	margin: 0;
+}

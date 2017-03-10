@@ -1,8 +1,7 @@
 'use strict';
 import React from 'react';
 
-let OrbitControls = require('three-orbit-controls')(THREE);
-
+let OrbitControls = require('./OrbitControls');
 
 export default class Visualizer extends React.Component {
 	constructor(props){
@@ -19,10 +18,12 @@ export default class Visualizer extends React.Component {
 
 	    this.onWindowResize = this.onWindowResize.bind(this);
 	    this.componentDidMount = this.componentDidMount.bind(this);
-	    this.onMouseMove = this.onMouseMove.bind(this);
+	    //this.onMouseMove = this.onMouseMove.bind(this);
+	    this.addModelToScene = this.addModelToScene.bind(this);
 	}
 
 	componentDidMount() {
+
 	    this.initRenderer();
 	    this.init();
 	    this.animate();
@@ -45,11 +46,8 @@ export default class Visualizer extends React.Component {
 
 	    //code below is from capstone project; not sure where "container" comes from 
 	    
-	    //let container = document.getElementById( 'container' );
-	    //container.appendChild( this.renderer.domElement );
-
-	    //wondering if the code below will work . . . ?  
-	    document.body.appendChild( renderer.domElement );
+	    let container = document.getElementById( 'container' );
+	    container.appendChild( this.renderer.domElement );
   	}
 
 
@@ -57,16 +55,19 @@ export default class Visualizer extends React.Component {
 	    console.log("INIT FUN");
 	    // create the scene to contain 3d modules
 	    this.scene = new THREE.Scene();
+	    this.scene.background = new THREE.Color( 0x264d73 );
 
 	    //the view from the userwindow.innerWidth / window.innerHeight
-	    this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 10000 );
-	    this.camera.position.z = 10;
+	    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	    this.camera.position.z = 20;
 
 	    //orbit around some object
-	    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-	    this.controls.enableDamping = true;
-	    this.controls.dampingFactor = 0.25;
-	    this.controls.enableZoom = true;
+	    this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+	    this.controls.autoRotate = true;
+
+	   // this.controls.enableDamping = true;
+	    //this.controls.dampingFactor = 0.25;
+	    //this.controls.enableZoom = true;
 
 	    // lights
 	    let light = new THREE.DirectionalLight( 0xffffff );
@@ -76,16 +77,27 @@ export default class Visualizer extends React.Component {
 	    light.position.set( -1, -1, -1 );
 	    this.scene.add( light );
 	
-	    if(this.props.model){
-	    	const model = this.props.model;
+	    if(this.props.modelSource){
+	    	const modelSource = this.props.modelSource;
 			const loader = new THREE.JSONLoader();
- 			loader.load( this.props.model, addModelToScene );
- 			// NEED TO MAKE SURE loadable blender model is on state!!!! 
+
+
+			//use this!!!
+			var loader = new THREE.JSONLoader();
+ 			loader.load( modelSource, this.addModelToScene );
+			
 	    }
+	
 	}
 
+	addModelToScene( geometry) {
+	   var material = new THREE.MeshLambertMaterial({color: '#d8e4f3'});
+	   let asanaModel = new THREE.Mesh( geometry, material );
+	   asanaModel.scale.set(0.5,0.5,0.5);
+	   this.scene.add( asanaModel );
+	}   
 		// auto resize
-	onWindowResize() {
+	onWindowResize(){
 	    this.camera.aspect = window.innerWidth / window.innerHeight;
 	    this.camera.updateProjectionMatrix();
 	    this.renderer.setSize( window.innerWidth, window.innerHeight );
@@ -96,22 +108,15 @@ export default class Visualizer extends React.Component {
 	    requestAnimationFrame( this.animate );
 	    this.controls.update(); // required if controls.enableDamping = true, or if controls.autoRotate = true
 	    // this.stats.update();
-	    this.renderPlot();
+	    //this.renderPlot();
+	    this.renderer.render(this.scene, this.camera);
 	  }
 
-	addModelToScene( geometry, materials ) {
-		let asanaModel;	
-
-	    var material = new THREE.MeshFaceMaterial(materials);
-	    asanaModel = new THREE.Mesh( geometry, material );
-	    asanaModel.scale.set(0.5,0.5,0.5);
-	    scene.add( asanaModel );
-	}
 
 	render(){
 		if(this) {// 'this' is sometimes undefined
-        	console.log("inside the visualizer renderer");
-			
+        	console.log("inside the visualizer, this.props", this.props);
+
 				return (
 						<div id="container">
 						</div>
@@ -122,17 +127,3 @@ export default class Visualizer extends React.Component {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
