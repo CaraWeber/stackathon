@@ -17,15 +17,33 @@
 }
 
 .mdl-grid {
-	margin: 15px;
+	margin: 30px;
+	margin-top: 75px;
 }
 
-.mdl-cell{
-	border: 15px;
+.mdl-cell--4-col {
+	margin: 10px;
+	background: url("./ava7patterns_pattern_1219.png");
+	background-size: 60px;
+}
+
+.mdl-cell--4-col-inner {
+	margin: 20;
+}
+
+.mdl-cell--7-col {
+	margin: 10px;
+	background: url("./ava7patterns_pattern_1660.png");
+	background-size: 60px;
+}
+
+.mdl-cell--7-col-inner {
+	margin: 20px;
 }
 
 #main {
-	background-color: #19334d;
+	background: url("./ava7patterns_pattern_1181.png");
+	background-size: 50px;
 }
 
 #subHeader {
