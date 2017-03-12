@@ -19,6 +19,8 @@ const reducer = (state, action) => {
 			case 'updog': 
 			newState.modelSource = './models/upward-facing-dog.json';
 			break;
+			case 'downdogsplit':
+			newState.modelSource =  './models/down-dog-split.json';
 		}
 		
 	}

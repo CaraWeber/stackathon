@@ -12,6 +12,14 @@
 	font-size: 52px;
 }
 
+.mdl-layout__drawer-button {
+	color: #264d73;
+}
+
+.material-icons {
+	font-size: 50px;
+}
+
 .mdl-layout__header {
 	height: 90px;
 }
@@ -27,7 +35,7 @@
 	background-size: 60px;
 }
 
-.mdl-cell--4-col-inner {
+#leftDiv {
 	margin: 40;
 	background: url("./ava7patterns_pattern_115.png");
 	background-size: 60px;
@@ -39,7 +47,7 @@
 	background-size: 60px;
 }
 
-.mdl-cell--7-col-inner {
+#rightDiv {
 	margin: 40px;
 }
 
@@ -62,19 +70,20 @@ font-family: 'Cinzel', serif;
 	background-color: #264d73;
 }
 
-#container {
-	width: 66%;
-}
-
 #panel {
 	margin: 0;
 	width: 300px;
 	height: 900px;
 }
 
+#container {
+	height: 400;
+	width: 600;
+}
+
 canvas {
-	height: 100%;
 	width: 100%;
+	height: 100%;
 }
 
 body {

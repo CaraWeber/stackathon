@@ -18,7 +18,7 @@ import store, {loadModel} from './store';
 // onEnters to load different models
 const loadUpDog = () => store.dispatch(loadModel('updog'));
 
-
+const loadDownDogSplit = () => store.dispatch(loadModel('downdogsplit'));
 
 ReactDOM.render(
 	
@@ -26,6 +26,7 @@ ReactDOM.render(
 			<Router history={browserHistory}>
 				<Route path="/" component={App} >
 					<Route path='/home' component={Home} onEnter={loadUpDog} />
+					<Route path='/downdogsplit' component={Home} onEnter={loadDownDogSplit} />
 				</Route>
 			</Router>
 		</Provider>,

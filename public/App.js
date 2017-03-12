@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-
+import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const style = {
@@ -27,17 +27,8 @@ export default class App extends React.Component {
 						      <span className="mdl-layout-title mytext">asana space</span>
 						    </div>
 						  </header>
-						  <div className="mdl-layout__drawer">
-						    <span className="mdl-layout-title">asanas</span>
-						    <nav className="mdl-navigation">
-						      <a className="mdl-navigation__link" href="">Link</a>
-						      <a className="mdl-navigation__link" href="">Link</a>
-						      <a className="mdl-navigation__link" href="">Link</a>
-						      <a className="mdl-navigation__link" href="">Link</a>
-						    </nav>
-						  </div>
+					</div>			
 					<div id="stripe">
-					</div>
 					</div>
 					<div id="subHeader">
 					</div>
@@ -46,5 +37,25 @@ export default class App extends React.Component {
 		)
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

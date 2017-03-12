@@ -44,16 +44,15 @@ export default class Visualizer extends React.Component {
 	   // this.renderer.setPixelRatio( window.devicePixelRatio ); -- maybe i don't need this??
 
 
-	var width = renerder.domElement.clientWidth;
-	var height = renderer.domElement.clientHeight;
+	var width = this.renderer.domElement.clientWidth;
+	var height = this.renderer.domElement.clientHeight;
  
 	// check if the canvas is the same size
-	if (renderer.domElement.width !== width ||
-    renderer.domElement.height !== height) {
+	if (this.renderer.domElement.width !== width) {
  
     // it's not the same size so make it the same size
     var updateCSSStyle = false;
-    renderer.setSize( width, height, updateCSSStyle );
+    this.renderer.setSize( width, height, updateCSSStyle );
 	}
 
 

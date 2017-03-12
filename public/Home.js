@@ -6,15 +6,15 @@ import VisualizerContainer from './VisualizerContainer';
 
 const Home = (props) =>  (
 			<div className="mdl-grid">
-				<div className="mdl-cell mdl-cell--4-col">
-					<div className="mdl-cell mdl-cell--4-col mdl-cell--4-col-inner">
-						<div className="mdl-cell mdl-cell--1-col">
+				<div className="mdl-grid mdl-cell mdl-cell--4-col">
+					<div className="mdl-cell mdl-cell--12-col" id="leftDiv">
+						<div className="mdl-cell mdl-cell--12-col" id="list">
 						</div>
 					</div>
 				</div>
 				{console.log("in home component")}
-				<div className="mdl-cell mdl-cell--7-col">
-					<div className="mdl-cell mdl-cell--7-col mdl-cell--7-col-inner">
+				<div className="mdl-grid mdl-cell mdl-cell--7-col">
+					<div className="mdl-cell mdl-cell--12-col" id="rightDiv">
 						<VisualizerContainer/>
 					</div>
 				</div>
