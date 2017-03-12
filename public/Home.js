@@ -8,6 +8,8 @@ const Home = (props) =>  (
 			<div className="mdl-grid">
 				<div className="mdl-cell mdl-cell--4-col">
 					<div className="mdl-cell mdl-cell--4-col mdl-cell--4-col-inner">
+						<div className="mdl-cell mdl-cell--1-col">
+						</div>
 					</div>
 				</div>
 				{console.log("in home component")}

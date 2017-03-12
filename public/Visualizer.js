@@ -41,10 +41,27 @@ export default class Visualizer extends React.Component {
 	initRenderer() {
 	    //to display the scene, create new renderer
 	    this.renderer = new THREE.WebGLRenderer();
-	    this.renderer.setPixelRatio( window.devicePixelRatio );
-	    this.renderer.setSize( window.innerWidth, window.innerHeight );
+	   // this.renderer.setPixelRatio( window.devicePixelRatio ); -- maybe i don't need this??
 
-	    //code below is from capstone project; not sure where "container" comes from 
+
+	var width = renerder.domElement.clientWidth;
+	var height = renderer.domElement.clientHeight;
+ 
+	// check if the canvas is the same size
+	if (renderer.domElement.width !== width ||
+    renderer.domElement.height !== height) {
+ 
+    // it's not the same size so make it the same size
+    var updateCSSStyle = false;
+    renderer.setSize( width, height, updateCSSStyle );
+	}
+
+
+
+
+
+	    //this.renderer.setSize( window.innerWidth, window.innerHeight );
+
 	    
 	    let container = document.getElementById( 'container' );
 	    container.appendChild( this.renderer.domElement );
@@ -55,7 +72,7 @@ export default class Visualizer extends React.Component {
 	    console.log("INIT FUN");
 	    // create the scene to contain 3d modules
 	    this.scene = new THREE.Scene();
-	    this.scene.background = new THREE.Color( 0x264d73 );
+	    this.scene.background = new THREE.Color( 0xB0D5EC );
 
 	    //the view from the userwindow.innerWidth / window.innerHeight
 	    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
