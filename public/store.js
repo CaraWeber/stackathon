@@ -21,6 +21,10 @@ const reducer = (state, action) => {
 			break;
 			case 'downdogsplit':
 			newState.modelSource =  './models/down-dog-split.json';
+			break;
+			case 'prayersky':
+			newState.modelSource = './models/urdhva_hastasana.json';
+			break;
 		}
 		
 	}
