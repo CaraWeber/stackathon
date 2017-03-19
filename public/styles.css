@@ -7,13 +7,20 @@
 	background-size: 120px;
 }
 
+.div-holder {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
 .mytext {
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Catamaran', sans-serif;
 	font-size: 52px;
 }
 
 .mdl-layout__header {
-	height: 90px;
+	background-color: rgba(235, 224, 235, .4);
+	height: 80px;
 }
 
 .mdl-grid {
@@ -21,45 +28,44 @@
 	margin-top: 65px;
 }
 
-.mdl-cell--4-col {
-	margin: 10px;
-	background-color: #A8AD94;
-	background-size: 60px;
-}
-
-#leftDiv {
-	margin: 40;
-	background: url("./ava7patterns_pattern_115.png");
-	background-size: 60px;
+.mdl-cell--3-col {
+	margin: 45px;
+	margin-right: 80px;
+	margin-left: 80px;
+	background-color: rgba(235, 224, 235, .4);
 }
 
 .mdl-cell--7-col {
-	margin: 10px;
-	margin-left: 60px;
-	background: url("./ava7patterns_pattern_115.png");
-	background-size: 60px;
-}
-
-#rightDiv {
-	margin: 40px;
+	margin: 45px;
+	background-color: rgba(235, 224, 235, .4);
 }
 
 #list {
-	margin: 30px;
-	padding: 30px;
-	background-color: ;
-	color: #264d73;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 45px;
+	background-color: rgba(235, 224, 235, .8);
+	color: #1A0F1C;
+	size: 100%;
 }
 
 #main {
-	background: url("./ava7patterns_pattern_1181.png");
-	background-size: 50px;
+	background: url("./Veil_Nebula_-_NGC6960.jpg");
+	background-size: cover;
+}
+
+#mainContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
 #subHeader {
-	height: 35px;
-	background: url("./ava7patterns_pattern_1486.png");
-	background-size: 50px;
+	height: 20px;
+	background-color: rgba(235, 224, 235, .65);
 }
 /*font-family: 'Oswald', sans-serif;
 font-family: 'Cinzel', serif;
@@ -67,7 +73,8 @@ font-family: 'Cinzel', serif;
 
 #stripe {
 	height: 2px;
-	background-color: #264d73;
+	background-color: rgb(235, 224, 235);
+
 }
 
 #panel {
@@ -77,10 +84,31 @@ font-family: 'Cinzel', serif;
 }
 
 #container {
-	height: 400;
-	width: 600;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	height: 100%;
+	width: 100%;
 }
 
+h1 {
+	font-family: 'Catamaran', sans-serif;
+}
+
+p {
+	font-family: 'Catamaran', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #1A0F1C;
+	font-family: 'C', sans-serif;
+}
+#myCanvas{
+	width: 100%;
+	height: 100%;
+}
 canvas {
 	width: 100%;
 	height: 100%;

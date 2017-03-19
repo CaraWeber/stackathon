@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import ReactDOM from 'react-dom'
 
 let OrbitControls = require('./OrbitControls');
 
@@ -40,30 +41,9 @@ export default class Visualizer extends React.Component {
 
 	initRenderer() {
 	    //to display the scene, create new renderer
-	    this.renderer = new THREE.WebGLRenderer();
-	   // this.renderer.setPixelRatio( window.devicePixelRatio ); -- maybe i don't need this??
+	    let aCanvas = ReactDOM.findDOMNode(this.refs.myCanvas);
 
-
-	var width = this.renderer.domElement.clientWidth;
-	var height = this.renderer.domElement.clientHeight;
- 
-	// check if the canvas is the same size
-	if (this.renderer.domElement.width !== width) {
- 
-    // it's not the same size so make it the same size
-    var updateCSSStyle = false;
-    this.renderer.setSize( width, height, updateCSSStyle );
-	}
-
-
-
-
-
-	    //this.renderer.setSize( window.innerWidth, window.innerHeight );
-
-	    
-	    let container = document.getElementById( 'container' );
-	    container.appendChild( this.renderer.domElement );
+	    this.renderer = new THREE.WebGLRenderer({canvas: aCanvas, antialias: true});
   	}
 
 
@@ -71,19 +51,15 @@ export default class Visualizer extends React.Component {
 	    console.log("INIT FUN");
 	    // create the scene to contain 3d modules
 	    this.scene = new THREE.Scene();
-	    this.scene.background = new THREE.Color( 0xB0D5EC );
+	    // this.scene.background = new THREE.Color( 0x3F163C);  * * *  BKGD COLOR * * * 
 
 	    //the view from the userwindow.innerWidth / window.innerHeight
 	    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-	    this.camera.position.z = 20;
+	    this.camera.position.z = 10;
 
 	    //orbit around some object
 	    this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
 	    this.controls.autoRotate = true;
-
-	   // this.controls.enableDamping = true;
-	    //this.controls.dampingFactor = 0.25;
-	    //this.controls.enableZoom = true;
 
 	    // lights
 	    let light = new THREE.DirectionalLight( 0xffffff );
@@ -92,7 +68,7 @@ export default class Visualizer extends React.Component {
 	    light = new THREE.DirectionalLight( 0xffffff );
 	    light.position.set( -1, -1, -1 );
 	    this.scene.add( light );
-	
+	 
 	    if(this.props.modelSource){
 	    	const modelSource = this.props.modelSource;
 			const loader = new THREE.JSONLoader();
@@ -107,11 +83,16 @@ export default class Visualizer extends React.Component {
 	}
 
 	addModelToScene( geometry) {
-	   var material = new THREE.MeshLambertMaterial({color: '#d8e4f3'});
+	   var material = new THREE.MeshLambertMaterial({color: '#F24987'});
 	   let asanaModel = new THREE.Mesh( geometry, material );
 	   asanaModel.scale.set(0.5,0.5,0.5);
 	   this.scene.add( asanaModel );
 	}   
+
+
+		// HEY CARA, this function below needs work!!! needs to resize to element size, not
+		// screen size!!!
+
 		// auto resize
 	onWindowResize(){
 	    this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -135,6 +116,7 @@ export default class Visualizer extends React.Component {
 
 				return (
 						<div id="container">
+						 <canvas id="myCanvas" ref="myCanvas"/>
 						</div>
 					)
 

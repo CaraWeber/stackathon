@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 const style = {
-	color: '#264d73'
+	color: 'rgb(235, 224, 235)'
 }
 
 
@@ -20,7 +20,7 @@ export default class App extends React.Component {
 		return (<div>
 					<div>
 						{/* navbar here */}
-						<header className="mdl-layout__header ava1496 mytext" style={style}>
+						<header className="mdl-layout__header mytext" style={style}>
 							<div className="mdl-layout__header-row mytext">
 						     {/*Add spacer, to align navigation to the right  */}
 						     <div className="mdl-layout-spacer"></div>
@@ -28,8 +28,8 @@ export default class App extends React.Component {
 						    </div>
 						  </header>
 					</div>			
-					<div id="stripe">
-					</div>
+				{/*	<div id="stripe">
+					</div> */}
 					<div id="subHeader">
 					</div>
 					{this.props.children}
