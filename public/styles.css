@@ -12,20 +12,12 @@
 	font-size: 52px;
 }
 
-.mdl-layout__drawer-button {
-	color: #264d73;
-}
-
-.material-icons {
-	font-size: 50px;
-}
-
 .mdl-layout__header {
 	height: 90px;
 }
 
 .mdl-grid {
-	margin: 30px;
+	margin: 40px;
 	margin-top: 65px;
 }
 
@@ -43,12 +35,20 @@
 
 .mdl-cell--7-col {
 	margin: 10px;
+	margin-left: 60px;
 	background: url("./ava7patterns_pattern_115.png");
 	background-size: 60px;
 }
 
 #rightDiv {
 	margin: 40px;
+}
+
+#list {
+	margin: 30px;
+	padding: 30px;
+	background-color: ;
+	color: #264d73;
 }
 
 #main {
