@@ -46,7 +46,7 @@
 	margin-left: 0px;
 	margin-right: 0px;
 	padding: 45px;
-	background-color: rgb(235, 224, 235);
+	background-color: rgba(235, 224, 235, .8);
 	color: #1A0F1C;
 	size: 100%;
 }
