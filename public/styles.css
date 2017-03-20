@@ -32,6 +32,7 @@
 	background-color: rgba(235, 224, 235, .4);
 	align-self: flex-start;
 	height: 100%;
+	display: inline-flex;
 }
 
 #photo-credit {
@@ -42,10 +43,7 @@
 }
 
 #list {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: 0px;
-	margin-right: 0px;
+	margin: 20px;
 	padding: 45px;
 	background-color: rgba(235, 224, 235, .8);
 	color: #1A0F1C;
@@ -68,7 +66,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	align-items: center;
+	align-items: stretch;
 }
 
 #subHeader {
@@ -101,6 +99,7 @@ font-family: 'Cinzel', serif;
 }
 
 h1 {
+	margin-top: 0px;
 	font-family: 'Catamaran', sans-serif;
 }
 

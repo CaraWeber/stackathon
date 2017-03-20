@@ -15,12 +15,12 @@ const Home = (props) =>  (
 							<Link to="/downdogsplit"><p> down dog split </p></Link>
 							<Link to="/lotus"><p> lotus </p></Link>
 							<Link to="/prayersky"><p> prayer to the sky </p></Link>
-							<p> (click asana name to view) </p>
+							<p> (click asana name to view, two fingers (over model) to zoom) </p>
 						</div>
 				</div>
 				{console.log("in home component")}
 				<div className="mdl-grid mdl-cell mdl-cell--7-col div-holder">
-						<VisualizerContainer/>
+					 <VisualizerContainer/>
 				</div>
 			</div>	
 			<div id="photo-credit">
@@ -30,3 +30,5 @@ const Home = (props) =>  (
 );
 
 export default Home;
+
+//className="mdl-grid mdl-cell mdl-cell--7-col div-holder mdl-cell--stretch"

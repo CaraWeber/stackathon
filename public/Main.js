@@ -29,6 +29,7 @@ ReactDOM.render(
 		<Provider store={store}>
 			<Router history={browserHistory}>
 				<Route path="/" component={App} >
+					<IndexRedirect to='/home' />
 					<Route path='/home' component={Home} onEnter={loadUpDog} />
 					<Route path='/lotus' component={Home} onEnter={loadLotus} />
 					<Route path='/downdogsplit' component={Home} onEnter={loadDownDogSplit} />
