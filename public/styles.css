@@ -28,7 +28,10 @@
 
 .mdl-cell--7-col {
 	margin: 45px;
+	margin-bottom: 0px;
 	background-color: rgba(235, 224, 235, .4);
+	align-self: flex-start;
+	height: 100%;
 }
 
 #photo-credit {

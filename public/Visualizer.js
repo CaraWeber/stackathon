@@ -15,11 +15,8 @@ export default class Visualizer extends React.Component {
 	    this.animate = this.animate.bind(this);
 	    this.mouse = new THREE.Vector2();
 	    this.mirror = true;
-	   	//this.objects = [];
-
-	    this.onWindowResize = this.onWindowResize.bind(this);
+	  
 	    this.componentDidMount = this.componentDidMount.bind(this);
-	    //this.onMouseMove = this.onMouseMove.bind(this);
 	    this.addModelToScene = this.addModelToScene.bind(this);
 	}
 
@@ -30,7 +27,6 @@ export default class Visualizer extends React.Component {
 	    this.animate();
 	    document.getElementsByTagName('canvas')[0]
 	      .addEventListener( 'mousemove', this.onMouseMove, false );
-	    window.addEventListener( 'resize', this.onWindowResize, false );
 	    window.requestAnimationFrame(this.render);
 	}
 
@@ -88,17 +84,6 @@ export default class Visualizer extends React.Component {
 	   asanaModel.scale.set(0.5,0.5,0.5);
 	   this.scene.add( asanaModel );
 	}   
-
-
-		// HEY CARA, this function below needs work!!! needs to resize to element size, not
-		// screen size!!!
-
-		// auto resize
-	onWindowResize(){
-	    this.camera.aspect = window.innerWidth / window.innerHeight;
-	    this.camera.updateProjectionMatrix();
-	    this.renderer.setSize( window.innerWidth, window.innerHeight );
-	  }
 
 		// animation
 	animate() {
