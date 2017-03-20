@@ -22,12 +22,15 @@ const loadDownDogSplit = () => store.dispatch(loadModel('downdogsplit'));
 
 const loadPrayerSky = () => store.dispatch(loadModel('prayersky'));
 
+const loadLotus = () => store.dispatch(loadModel('lotus'));
+
 ReactDOM.render(
 	
 		<Provider store={store}>
 			<Router history={browserHistory}>
 				<Route path="/" component={App} >
 					<Route path='/home' component={Home} onEnter={loadUpDog} />
+					<Route path='/lotus' component={Home} onEnter={loadLotus} />
 					<Route path='/downdogsplit' component={Home} onEnter={loadDownDogSplit} />
 					<Route path='/updog' component={Home} onEnter={loadUpDog} />
 					<Route path='/prayersky' component={Home} onEnter={loadPrayerSky} />

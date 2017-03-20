@@ -13,6 +13,7 @@ const Home = (props) =>  (
 							<h1> asanas </h1>
 							<Link to="/updog"><p> upward facing dog </p></Link>
 							<Link to="/downdogsplit"><p> down dog split </p></Link>
+							<Link to="/lotus"><p> lotus </p></Link>
 							<Link to="/prayersky"><p> prayer to the sky </p></Link>
 							<p> (click asana name to view) </p>
 						</div>
