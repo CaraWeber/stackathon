@@ -17,7 +17,7 @@ const reducer = (state, action) => {
 	if(action.type = 'RECEIVE_MODEL'){
 		switch (action.model) {
 			case 'updog': 
-			newState.modelSource = './models/upward-facing-dog.json';
+			newState.modelSource = './models/upward-facing-dog2.json';
 			break;
 			case 'downdogsplit':
 			newState.modelSource =  './models/down-dog-split.json';
@@ -25,6 +25,8 @@ const reducer = (state, action) => {
 			case 'prayersky':
 			newState.modelSource = './models/urdhva_hastasana.json';
 			break;
+			case 'lotus':
+			newState.modelSource = './models/lotus.json';
 		}
 		
 	}
