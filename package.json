@@ -4,9 +4,11 @@
   "description": "3d asana modeling",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e html,js,css ./index.js",
+    "start-dev": "nodemon -e html,js,css ./index.js",
+    "start": "node ./index.js",
     "build": "webpack",
-    "build-watch": "npm run build -- -w"
+    "build-watch": "npm run build -- -w",
+    "heroku-postbuild" : "npm run build"
   },
   "author": "",
   "license": "ISC",
