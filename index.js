@@ -30,6 +30,7 @@ app.get('/*', function (req, res, next){
 	res.sendFile(path.resolve(__dirname, 'public', 'index.html')); 
 })
 
-app.listen(3001, function () {
+const port = process.env.PORT || 3001; 
+app.listen(port, function () {
         console.log('Server is listening on port 3001!');
     });
